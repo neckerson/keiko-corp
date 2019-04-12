@@ -8,8 +8,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
 
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
-  <link rel="stylesheet" type="text/css" href="css/owl.transitions.css"/>
-  <link rel="stylesheet" type="text/css" href="css/owl.carousel.css"/>
   <link rel="stylesheet" type="text/css" href="css/animate.css"/>
   <link rel="stylesheet" type="text/css" href="css/main.css"/>
 
@@ -45,8 +43,36 @@
   </header>
   <!--  End Header Section  -->
 
+<!-- load Below the Fold CSS Styles -->
+ <script>
+      /*!
+      Modified for brevity from https://github.com/filamentgroup/loadCSS
+      loadCSS: load a CSS file asynchronously.
+      [c]2014 @scottjehl, Filament Group, Inc.
+      Licensed MIT
+      */
+      function loadCSS(href){
+        var ss = window.document.createElement('link'),
+            ref = window.document.getElementsByTagName('head')[0];
 
+        ss.rel = 'stylesheet';
+        ss.href = href;
 
+        // temporarily, set media to something non-matching to ensure it'll
+        // fetch without blocking render
+        ss.media = 'only x';
+
+        ref.parentNode.insertBefore(ss, ref);
+
+        setTimeout( function(){
+          // set media back to `all` so that the stylesheet applies once it loads
+          ss.media = 'all';
+        },0);
+      }
+    loadCSS('css/owl.transitions.css');
+    loadCSS('css/owl.carousel.css');
+    </script>
+<!-- End below Fold CSS Styles -->
 
 
 
